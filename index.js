@@ -1,16 +1,19 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>JavaScript Page</title>
-    <meta charset="utf-8">
-    <script src="day.js"></script>
-    <script>
-      let now = new Date();
-      alert(`Hello, world! Happy ${dayName(now)}.`);
-    </script>
-  </head>
-  <body>
-    <h1>Hello, world!</h1>
-    <p>This page includes an alert written in JavaScript.</p>
-  </body>
-</html>
+// Adds `reverse` to all strings.
+String.prototype.reverse = function() {
+  return Array.from(this).reverse().join("");
+}
+
+// Defines a Phrase object.
+function Phrase(content) {
+  this.content = content;
+
+  // Returns content processed for palindrome testing.
+  this.processedContent = function processedContent() {
+    return this.content.toLowerCase();
+  }
+
+  // Returns true if the phrase is a palindrome, false otherwise.
+  this.palindrome = function palindrome() {
+    return this.processedContent() === this.processedContent().reverse();
+  }
+}
